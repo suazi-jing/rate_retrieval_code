@@ -1,0 +1,1851 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#D5D9EB'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 客服机器人初始
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: hjlarry/database:0.0.6@534bc26cf5bc4ff6b5557457452287ccc71f00eef9378784c4f43ca49954ca2f
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.17@f7a5c1d222d17ee419b17a80d6e4923838fe93788dc724a3af73fbc6990b3a32
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.2.1@0924de1d15a8a35b0cc64ff396c68d5edddcfbc495a1e52ea57e8648434eff4b
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: knowledge-retrieval
+      id: 1774343927230-source-1774251580617-target
+      selected: false
+      source: '1774343927230'
+      sourceHandle: source
+      target: '1774251580617'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1774343927230-source-1774430433486-target
+      selected: false
+      source: '1774343927230'
+      sourceHandle: source
+      target: '1774430433486'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1774075229710-source-1774343927230-target
+      selected: false
+      source: '1774075229710'
+      sourceHandle: source
+      target: '1774343927230'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1774937953613-source-1774075229710-target
+      selected: false
+      source: '1774937953613'
+      sourceHandle: source
+      target: '1774075229710'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 1774249806723-source-1776156022087-target
+      selected: false
+      source: '1774249806723'
+      sourceHandle: source
+      target: '1776156022087'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: code
+      id: 1774251580617-source-1774249806723-target
+      selected: false
+      source: '1774251580617'
+      sourceHandle: source
+      target: '1774249806723'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1774343927230-source-1774249806723-target
+      selected: false
+      source: '1774343927230'
+      sourceHandle: source
+      target: '1774249806723'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: http-request
+      id: 1776155853744-source-1777100409578-target
+      source: '1776155853744'
+      sourceHandle: source
+      target: '1777100409578'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1777360235454-source-1777360241187-target
+      source: '1777360235454'
+      sourceHandle: source
+      target: '1777360241187'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1777360241187-false-1777360262249-target
+      source: '1777360241187'
+      sourceHandle: 'false'
+      target: '1777360262249'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1777360262249-true-1777273028940-target
+      source: '1777360262249'
+      sourceHandle: 'true'
+      target: '1777273028940'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1777360262249-false-1777272303896-target
+      source: '1777360262249'
+      sourceHandle: 'false'
+      target: '1777272303896'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1774430433486-source-1780042373256-target
+      source: '1774430433486'
+      sourceHandle: source
+      target: '1780042373256'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1780042373256-source-1774249806723-target
+      source: '1780042373256'
+      sourceHandle: source
+      target: '1774249806723'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1774075077315-source-1777360235454-target
+      source: '1774075077315'
+      sourceHandle: source
+      target: '1777360235454'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1777360241187-true-1774937953613-target
+      source: '1777360241187'
+      sourceHandle: 'true'
+      target: '1774937953613'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: answer
+        targetType: http-request
+      id: 1776156022087-source-1776155853744-target
+      source: '1776156022087'
+      sourceHandle: source
+      target: '1776155853744'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: answer
+        targetType: http-request
+      id: 1777273028940-source-17772719942400-target
+      source: '1777273028940'
+      sourceHandle: source
+      target: '17772719942400'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: target_id
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: target_id
+      height: 109
+      id: '1774075077315'
+      position:
+        x: -360.3094604139692
+        y: 129.35952191257536
+      positionAbsolute:
+        x: -360.3094604139692
+        y: 129.35952191257536
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - KDrSBN6B5xgwBEOrfQx7FWgpy2YYaHkGwHBE2/Hqva93rD+JiAxbVfSXwAo+RYEE
+        - 25kxqAmIw+vuVd2J1jiluCQzCbCJZfjyeiDLhM1OEHt94hHWtEqA+rKbvXz9BnpP
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: gte-rerank-v2
+            provider: langgenius/tongyi/tongyi
+          score_threshold: 0.3
+          top_k: 8
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1774937953613'
+        - card_name
+        retrieval_mode: multiple
+        selected: false
+        title: 知识库检索询问规则
+        type: knowledge-retrieval
+      height: 118
+      id: '1774075229710'
+      position:
+        x: 859.3336380740253
+        y: 15.054249100449042
+      positionAbsolute:
+        x: 859.3336380740253
+        y: 15.054249100449042
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\nimport math\n\ndef extract_json(text):\n  \
+          \  \"\"\"从文本中提取 JSON\"\"\"\n    if not text or not isinstance(text, str):\n\
+          \        return None\n    try:\n        return json.loads(text)\n    except:\n\
+          \        pass\n    match = re.search(r'\\{.*\\}', text, re.DOTALL)\n   \
+          \ if match:\n        try:\n            return json.loads(match.group())\n\
+          \        except:\n            pass\n    return None\n\n\"\"\"从知识库中提取外汇值\"\
+          \"\"\ndef extract_forex_value(forex_result):\n    forex_value = 199 # 测试用，实际值从知识库中提取\n\
+          \    if forex_result and isinstance(forex_result, list):\n        for item\
+          \ in forex_result:\n            content = item.get(\"content\", \"\")\n\
+          \            match = re.search(r'今日外汇值\\s*[：:]\\s*(\\d+)', content)\n  \
+          \          if not match:\n                match = re.search(r'今日外汇值\\s*(\\\
+          d+)', content)\n            if match:\n                forex_value = int(match.group(1))\n\
+          \                break\n    return forex_value\n\n\"\"\"检查卡片特殊规则（整合苹果卡按国家规则）\"\
+          \"\"\ndef check_card_rules(card_type, card_subtype, face_value, country,\
+          \ card_prefix=\"\"):\n    if card_type == \"苹果卡\":\n        if country ==\
+          \ \"台湾\" and face_value < 500:\n            return False, \"Sorry, we currently\
+          \ do not process cards of this denomination (Taiwan Apple Cards must be\
+          \ ≥500)\"\n        if country == \"香港\" and face_value < 150:   # 根据规则文档：面值\
+          \ < 150\n            return False, \"Sorry, we currently do not process\
+          \ cards of this denomination (Hong Kong Apple Cards must be >150)\"\n  \
+          \      if country == \"日本\" and face_value < 1000:\n            return False,\
+          \ \"Sorry, we currently do not handle cards of this denomination (Japanese\
+          \ Apple Cards must be ≥1000)\"\n        return True, None\n    if card_type\
+          \ == \"谷歌卡\":\n        if country == \"韩国\" and face_value < 10000:\n  \
+          \          return False, \"Sorry, we currently do not process cards of this\
+          \ denomination (Korean Google cards must be ≥10000)\"\n        return True,\
+          \ None\n    if card_type == \"eBay卡\":\n        if country and country.lower()\
+          \ != \"us\" and \"美国\" not in country:\n            return False, \"Sorry,\
+          \ we currently do not process eBay cards from this country (only supports\
+          \ the United States).\"\n        return True, None\n    if card_type ==\
+          \ \"雷蛇卡\":\n        if face_value < 1:\n            return False, \"Sorry,\
+          \ we currently do not process cards of this denomination (Razer cards need\
+          \ to be >1)\"\n        return True, None\n    if card_type == \"美国运通卡\"\
+          :\n        if card_prefix not in [\"3779\", \"3751\"]:\n            return\
+          \ False, \"Sorry, we currently do not process American Express cards starting\
+          \ with this card number (only supports those starting with 3779 or 3751).\"\
+          \n        return True, None\n    if card_type == \"PSN卡\":\n        if face_value\
+          \ < 5:   # 规则：面值 < 5 才违规\n            return False, \"Sorry, we currently\
+          \ do not process cards of this denomination (PSN cards must be >= 5)\"\n\
+          \        return True, None\n    if card_type == \"Steam卡\":\n        if\
+          \ face_value < 1:\n            return False, \"Sorry, we currently do not\
+          \ handle cards of this denomination (Steam cards must be ≥1)\"\n       \
+          \ return True, None\n    if card_type == \"Apple Pay\":\n        if country\
+          \ and country.lower() != \"us\" and \"美国\" not in country:\n           \
+          \ return False, \"Sorry, Apple Pay is not currently supported in this country\
+          \ (only available in the U.S.)\"\n        return True, None\n    if card_type\
+          \ == \"Chime\":\n        if face_value < 9:   # 规则：面值 < 9 才违规，即9也是违规\n \
+          \           return False, \"Sorry, we currently do not process cards of\
+          \ this denomination (Chime cards must be >= 10)\"\n        return True,\
+          \ None\n    if card_type == \"Chime\":\n        if country and country.lower()\
+          \ != \"us\" and \"美国\" not in country:\n            return False, \"Sorry,\
+          \ we currently do not handle Chime from this country (only supports the\
+          \ United States)\"\n        return True, None\n    if card_type == \"Paysafe卡\"\
+          :\n        # 各国面值下限字典（规则：面值 < 阈值 即违规）\n        thresholds = {\n        \
+          \    \"英国\": 10,\n            \"瑞士\": 10,\n            \"欧盟\": 10,\n   \
+          \         \"希腊\": 10,\n            \"葡萄牙\": 10,\n            \"挪威\": 150,\n\
+          \            \"瑞典\": 150,\n            \"罗马尼亚\": 100,\n            \"捷克\"\
+          : 300,\n            \"波兰\": 50,\n            \"丹麦\": 100,\n            \"\
+          新西兰\": 50,\n            \"匈牙利\": 5000,\n            \"澳大利亚\": 50,\n    \
+          \        \"加拿大\": 25,\n            \"保加利亚\": 50,\n            \"墨西哥\": 200,\n\
+          \            \"阿联酋\": 50,\n        }\n        # 检查国家是否在阈值字典中\n        if\
+          \ country not in thresholds:\n            return False, f\"Sorry, Paysafe\
+          \ cards from {country} are not currently supported\"\n        threshold\
+          \ = thresholds[country]\n        # 检查面值是否小于阈值\n        if face_value < threshold:\n\
+          \            return False, f\"Sorry, we currently do not process cards of\
+          \ this denomination (Paysafe cards must be ≥{threshold})\"\n        return\
+          \ True, None\n    \n    return True, None\n\n\"\"\"获取国家名称的变体\"\"\"\ndef\
+          \ get_country_variants(country):\n   \n    country_map = {\n        \"us\"\
+          : [\"us\", \"美国\", \"usa\", \"united states\", \"美\", \"美金USD\", \"USD\"\
+          ],\n        \"uk\": [\"uk\", \"英国\", \"britain\", \"england\", \"英\", \"\
+          英榜GBP\", \"GBP\"],\n        \"tw\": [\"tw\", \"台湾\", \"taiwan\", \"台\"],\n\
+          \        \"hk\": [\"hk\", \"香港\", \"hongkong\", \"港\"],\n        \"jp\"\
+          : [\"jp\", \"日本\", \"japan\", \"日\"],\n        \"kr\": [\"kr\", \"韩国\",\
+          \ \"korea\", \"韩元\"],\n        \"de\": [\"de\", \"德国\", \"germany\", \"\
+          德\"],\n        \"eu\": [\"eu\", \"欧盟\", \"europe\", \"欧盟EUR\", \"EUR\"],\n\
+          \        \"ch\": [\"ch\", \"瑞士\", \"switzerland\", \"瑞士CHF\", \"CHF\"],\n\
+          \        \"ca\": [\"ca\", \"加拿大\", \"canada\", \"加元CAD\", \"CAD\"],\n  \
+          \      \"au\": [\"au\", \"澳大利亚\", \"australia\", \"澳元AUD\", \"AUD\"],\n\
+          \        \"nz\": [\"nz\", \"新西兰\", \"new zealand\", \"新西兰NZD\", \"NZD\"\
+          ],\n        \"pl\": [\"pl\", \"波兰\", \"poland\", \"波兰PLN\", \"PLN\"],\n\
+          \    }\n    country_lower = country.lower()\n    for key, variants in country_map.items():\n\
+          \        if country_lower == key or country_lower in variants:\n       \
+          \     return variants\n    return [country_lower]\n\n\ndef parse_exchange_rate(content,\
+          \ card_type, card_subtype, face_value, country):\n    card_type = card_type.replace(\"\
+          \ \", \"\") if card_type else \"\"\n\n    card_match_keywords = {\n    \
+          \    \"谷歌卡\": [\"谷歌卡\", \"Google\", \"google\",\"google card\"],\n     \
+          \   \"亚马逊卡\": [\"亚马逊卡\", \"Amazon\", \"amazon\",\"amazon card\"],\n    \
+          \    \"eBay卡\": [\"eBay\", \"eBay卡\", \"ebay\",\"ebay card\"],\n       \
+          \ \"Steam卡\": [\"Steam\", \"steam card\"],\n        \"Xbox卡\": [\"Xbox\"\
+          , \"xbox card\"],\n        \"雷蛇卡\": [\"雷蛇卡\", \"Razer\", \"razer\",\"razer\
+          \ card\"],\n        \"丝芙兰卡\": [\"丝芙兰卡\", \"Sephora\", \"sephora\",\"sephora\
+          \ card\"],\n        \"香草卡\": [\"香草卡\", \"Vanilla\",\"vanilla card\"],\n\
+          \        \"美国运通卡\": [\"运通卡\", \"Amex\",\"amex card\"],\n        \"PSN卡\"\
+          : [\"PSN\", \"PlayStation\",\"playstation card\"],\n        \"Apple Pay\"\
+          : [\"Apple Pay\", \"苹果支付\",\"apple pay\"],\n        \"Chime\": [\"Chime\"\
+          , \"Chime卡\", \"chime\",\"chime card\"],\n        \"苹果卡\": [\"苹果卡\", \"\
+          Apple\",\"apple card\"],\n        \"台湾苹果卡\": [\"台湾苹果卡\", \"苹果卡\", \"Apple\"\
+          ],\n        \"香港苹果卡\": [\"香港苹果卡\", \"苹果卡\", \"Apple\"],\n        \"日本苹果卡\"\
+          : [\"日本苹果卡\", \"苹果卡\", \"Apple\"],\n        \"Paysafe卡\": [\"Paysafe卡\"\
+          , \"Paysafe\", \"paysafecard\",\"paysafe card\"],\n    }\n\n    keywords\
+          \ = card_match_keywords.get(card_type, [card_type])\n    if not any(kw in\
+          \ content for kw in keywords):\n        return None\n\n    lines = content.split('\\\
+          n')\n    multiple_candidates = []\n    interval_rate = None\n\n    country_aliases\
+          \ = {\n        \"美国\": [\"美国\", \"us\", \"usa\", \"美金\", \"usd\"],\n   \
+          \     \"英国\": [\"英国\", \"uk\", \"gbp\", \"英镑\"],\n        \"日本\": [\"日本\"\
+          , \"jp\", \"jpy\", \"日元\"],\n        \"台湾\": [\"台湾\", \"tw\", \"taiwan\"\
+          ],\n        \"香港\": [\"香港\", \"hk\", \"hongkong\"],\n        \"德国\": [\"\
+          德国\", \"de\", \"germany\"],\n        \"欧盟\": [\"欧盟\", \"eu\", \"europe\"\
+          , \"eur\", \"europa\"],\n        \"加拿大\": [\"加拿大\", \"ca\", \"cad\", \"\
+          canada\"],\n        \"澳大利亚\": [\"澳大利亚\", \"au\", \"aud\",\"australia\"],\n\
+          \        \"瑞士\": [\"瑞士\", \"switzerland\", \"ch\", \"chf\"],\n        \"\
+          新西兰\": [\"新西兰\", \"new zealand\", \"nz\", \"nzd\"],\n        \"波兰\": [\"\
+          波兰\", \"poland\", \"pl\", \"pln\"],\n        \"挪威\": [\"挪威\", \"norway\"\
+          , \"no\"],\n        \"瑞典\": [\"瑞典\", \"sweden\", \"se\"],\n        \"罗马尼亚\"\
+          : [\"罗马尼亚\", \"romania\", \"ro\"],\n        \"捷克\": [\"捷克\", \"czech\",\
+          \ \"cz\"],\n        \"丹麦\": [\"丹麦\", \"denmark\", \"dk\"],\n        \"匈牙利\"\
+          : [\"匈牙利\", \"hungary\", \"hu\"],\n        \"保加利亚\": [\"保加利亚\", \"bulgaria\"\
+          , \"bg\"],\n        \"墨西哥\": [\"墨西哥\", \"mexico\", \"mx\"],\n        \"\
+          阿联酋\": [\"阿联酋\", \"uae\", \"united arab emirates\"],\n        \"新加坡\": [\"\
+          新加坡\", \"singapore\", \"sg\"],\n        \"希腊\": [\"希腊\", \"greece\", \"\
+          gr\"],\n        \"葡萄牙\": [\"葡萄牙\", \"portugal\", \"pt\"],\n        \"奥地利\"\
+          : [\"奥地利\", \"austria\", \"at\"],\n        \"比利时\": [\"比利时\", \"belgium\"\
+          , \"be\"],\n        \"芬兰\": [\"芬兰\", \"finland\", \"fi\"],\n        \"法国\"\
+          : [\"法国\", \"france\", \"fr\"],\n        \"爱尔兰\": [\"爱尔兰\", \"ireland\"\
+          , \"ie\"],\n        \"意大利\": [\"意大利\", \"italy\", \"it\"],\n        \"卢森堡\"\
+          : [\"卢森堡\", \"luxembourg\", \"lu\"],\n        \"荷兰\": [\"荷兰\", \"netherlands\"\
+          , \"nl\"],\n        \"西班牙\": [\"西班牙\", \"spain\", \"es\"],\n        \"塞浦路斯\"\
+          : [\"塞浦路斯\", \"cyprus\", \"cy\"],\n        \"克罗地亚\":[\"克罗地亚\", \"croatia\"\
+          , \"hr\"],\n        \"爱沙尼亚\": [\"爱沙尼亚\", \"estonia\", \"ee\"],\n       \
+          \ \"拉脱维亚\": [\"拉脱维亚\", \"latvia\", \"lv\"],\n        \"立陶宛\": [\"立陶宛\",\
+          \ \"Lithuania\", \"lt\"],\n        \"马耳他\": [\"马耳他\", \"malta\", \"mt\"\
+          ],\n        \"斯洛伐克\": [\"斯洛伐克\", \"slovakia\", \"sk\"],\n        \"斯洛文尼亚\"\
+          : [\"斯洛文尼亚\", \"slovenia\", \"si\"],\n        \"韩国\": [\"韩国\", \"kr\", \"\
+          korea\"],\n        \"哥伦比亚\": [\"哥伦比亚\", \"colombia\"],\n        \"沙特阿拉伯\"\
+          : [\"沙特阿拉伯\", \"sa\", \"Saudi Arabia\"],\n        \"智利\": [\"智利\", \"chile\"\
+          , \"Republic of Chile\"],\n        \"印度\": [\"印度\", \"india\"],\n      \
+          \  \"南非\": [\"南非\", \"south africa\"],\n        \"以色列\": [\"以色列\", \"israel\"\
+          ],\n    }\n\n    for line in lines:\n        if '|' not in line or '---'\
+          \ in line:\n            continue\n        # 去除首尾空格，按 | 分割，并过滤空字符串\n    \
+          \    parts = [p.strip() for p in line.split('|') if p.strip()]\n       \
+          \ if len(parts) < 5:   # 至少需要 CardName, value, rate, Exolanation, Region\n\
+          \            continue\n\n        # 修正索引：parts[0] -> CardName, parts[1] ->\
+          \ value, parts[2] -> rate, parts[3] -> Exolanation, parts[4] -> Region\n\
+          \        range_text = parts[1]      # 面值范围\n        try:\n            rate\
+          \ = float(parts[2])  # 汇率\n        except:\n            continue\n\n   \
+          \     description = parts[3] if len(parts) >= 4 else \"\"   # 说明\n     \
+          \   region = parts[4] if len(parts) >= 5 else \"\"        # 地区\n\n     \
+          \   # 地区匹配\n        if country:\n            region_clean = re.sub(r'[\\\
+          u200b\\u200c\\u200d\\u200e\\u200f\\u00a0\\s]', '', region).lower()\n   \
+          \         aliases = country_aliases.get(country, [country.lower()])\n  \
+          \          if not any(alias in region_clean for alias in aliases):\n   \
+          \             continue\n\n        # 倍数判断\n        is_multiple_row = ('倍数'\
+          \ in range_text or '倍数匹配' in description)\n\n        # 倍数匹配处理\n        if\
+          \ is_multiple_row:\n            mult_match = re.search(r'(\\d+)\\s*的?\\\
+          s*倍数', range_text)\n            if not mult_match:\n                mult_match\
+          \ = re.search(r'(\\d+)\\s*的?\\s*倍数', description)\n            if mult_match:\n\
+          \                multiple = int(mult_match.group(1))\n                if\
+          \ '以上' in range_text:\n                    numbers = re.findall(r'\\d+',\
+          \ range_text)\n                    if numbers:\n                       \
+          \ threshold = int(numbers[0])\n                        if face_value >=\
+          \ threshold and face_value % multiple == 0:\n                          \
+          \  multiple_candidates.append((multiple, rate))\n                elif '-'\
+          \ in range_text or '到' in range_text:\n                    numbers = re.findall(r'\\\
+          d+', range_text)\n                    if len(numbers) >= 2:\n          \
+          \              start = int(numbers[0])\n                        end = int(numbers[1])\n\
+          \                        if start <= face_value <= end and face_value %\
+          \ multiple == 0:\n                            multiple_candidates.append((multiple,\
+          \ rate))\n                else:\n                    numbers = re.findall(r'\\\
+          d+', range_text)\n                    if numbers and face_value % multiple\
+          \ == 0:\n                        multiple_candidates.append((multiple, rate))\n\
+          \            else:\n                # 隐含倍数（如 “50倍数” 写在数字后）\n           \
+          \     numbers = re.findall(r'\\d+', range_text)\n                if len(numbers)\
+          \ >= 3:\n                    start = int(numbers[0])\n                 \
+          \   end = int(numbers[1])\n                    multiple = int(numbers[2])\n\
+          \                    if start <= face_value <= end and face_value % multiple\
+          \ == 0:\n                        multiple_candidates.append((multiple, rate))\n\
+          \            continue\n\n        # 普通区间匹配（非倍数行）\n        if '排除' in description:\n\
+          \            exclude_match = re.search(r'排除\\s*([\\d/]+)', description)\n\
+          \            if exclude_match:\n                exclude_str = exclude_match.group(1)\n\
+          \                excludes = [int(x) for x in exclude_str.split('/') if x.isdigit()]\n\
+          \                if face_value in excludes:\n                    continue\n\
+          \n        # 处理区间匹配（含 - 或 “到”）\n        if '-' in range_text or '到' in range_text:\n\
+          \            numbers = re.findall(r'\\d+', range_text)\n            if len(numbers)\
+          \ >= 2:\n                start = int(numbers[0])\n                end =\
+          \ int(numbers[1])\n                if start <= face_value <= end:\n    \
+          \                if interval_rate is None:\n                        interval_rate\
+          \ = rate\n        # 处理 “以上” 格式\n        elif '以上' in range_text:\n     \
+          \       numbers = re.findall(r'\\d+', range_text)\n            if numbers:\n\
+          \                threshold = int(numbers[0])\n                if face_value\
+          \ >= threshold:\n                    if interval_rate is None:\n       \
+          \                 interval_rate = rate\n        # 处理单一面值（纯数字，无区间、无倍数、无以上）\n\
+          \        else:\n            numbers = re.findall(r'\\d+', range_text)\n\
+          \            if numbers and len(numbers) == 1:\n                if face_value\
+          \ == int(numbers[0]):\n                    if interval_rate is None:\n \
+          \                       interval_rate = rate\n\n    # 优先返回倍数结果（倍数大的优先）\n\
+          \    if multiple_candidates:\n        multiple_candidates.sort(key=lambda\
+          \ x: -x[0])\n        return multiple_candidates[0][1]\n    if interval_rate\
+          \ is not None:\n        return interval_rate\n    return None\n\n\n\n\n\
+          def get_exchange_rate(rate_result, card_type, card_subtype, face_value,\
+          \ country):\n    if not rate_result or not isinstance(rate_result, list):\n\
+          \        return None\n    for item in rate_result:\n        content = item.get(\"\
+          content\", \"\")\n        rate = parse_exchange_rate(content, card_type,\
+          \ card_subtype, face_value, country)\n        if rate is not None:\n   \
+          \         return rate\n    return None\n\ndef parse_combined_query(query):\n\
+          \    \"\"\"从组合查询字符串中提取卡片信息\"\"\"\n    if not query:\n        return None\n\
+          \    parts = query.strip().split()\n    if not parts:\n        return None\n\
+          \    \n    result = {\n        \"card_type\": None,\n        \"country\"\
+          : None,\n        \"card_subtype\": None,\n        \"face_value\": None\n\
+          \    }\n    \n    card_keywords = [\n        (\"台湾苹果卡\", \"台湾苹果卡\"),\n \
+          \       (\"香港苹果卡\", \"香港苹果卡\"),\n        (\"日本苹果卡\", \"日本苹果卡\"),\n     \
+          \   (\"苹果卡\", \"苹果卡\"),\n        (\"谷歌卡\", \"谷歌卡\"),\n        (\"亚马逊卡\"\
+          , \"亚马逊卡\"),\n        (\"eBay卡\", \"eBay卡\"),\n        (\"Steam卡\", \"Steam卡\"\
+          ),\n        (\"Xbox卡\", \"Xbox卡\"),\n        (\"雷蛇卡\", \"雷蛇卡\"),\n     \
+          \   (\"丝芙兰卡\", \"丝芙兰卡\"),\n        (\"香草卡\", \"香草卡\"),\n        (\"美国运通卡\"\
+          , \"美国运通卡\"),\n        (\"PSN卡\", \"PSN卡\"),\n        (\"Apple Pay\", \"\
+          Apple Pay\"),\n        (\"Chime\", \"Chime\"),\n    ]\n    \n    for keyword,\
+          \ standardized in card_keywords:\n        if keyword in query:\n       \
+          \     result[\"card_type\"] = standardized\n            break\n    \n  \
+          \  country_map = {\n        \"美国\": [\"美国\", \"美\", \"us\", \"usa\"],\n\
+          \        \"英国\": [\"英国\", \"英\", \"uk\"],\n        \"台湾\": [\"台湾\", \"tw\"\
+          ],\n        \"香港\": [\"香港\", \"hk\"],\n        \"日本\": [\"日本\", \"jp\"],\n\
+          \        \"韩国\": [\"韩国\", \"kr\", \"korea\"],\n        \"德国\": [\"德国\",\
+          \ \"de\"],\n        \"欧盟\": [\"欧盟\", \"eu\", \"europe\"],\n        \"加拿大\"\
+          : [\"加拿大\", \"ca\"],\n        \"澳大利亚\": [\"澳大利亚\", \"澳洲\", \"au\"],\n  \
+          \      \"瑞士\": [\"瑞士\", \"ch\"],\n        \"新西兰\": [\"新西兰\", \"nz\"],\n\
+          \        \"波兰\": [\"波兰\", \"pl\"],\n    }\n    for std, variants in country_map.items():\n\
+          \        for v in variants:\n            if v in query.lower():\n      \
+          \          result[\"country\"] = std\n                break\n        if\
+          \ result[\"country\"]:\n            break\n    \n    subtype_keywords =\
+          \ [\"实体卡\", \"电子卡\", \"竖卡\", \"代码卡\"]\n    for sub in subtype_keywords:\n\
+          \        if sub in query:\n            result[\"card_subtype\"] = sub\n\
+          \            break\n    \n    return result\n\ndef main(llm_output, forex_result,\
+          \ rate_result, combined_query, user_query):\n  # ========== 0. 标准化输入变量 ==========\n\
+          \    # 确保 forex_result 是列表（知识库格式）\n    if isinstance(forex_result, str):\n\
+          \        try:\n            forex_result = json.loads(forex_result) if forex_result.strip()\
+          \ else []\n        except:\n            forex_result = []\n    if not isinstance(forex_result,\
+          \ list):\n        forex_result = []\n\n    # 确保 rate_result 是列表形式（兼容知识库数组\
+          \ 和 数据库查询的 markdown 字符串）\n    if isinstance(rate_result, str) and rate_result.strip():\n\
+          \        # 将字符串包装成列表，元素为含有 content 字段的字典\n        rate_result = [{\"content\"\
+          : rate_result}]\n    elif isinstance(rate_result, list):\n        # 已经是列表，直接使用（知识库返回的格式）\n\
+          \        pass\n    else:\n        rate_result = []\n\n    # 确保 combined_query\
+          \ 和 user_query 是字符串\n    if combined_query is None:\n        combined_query\
+          \ = \"\"\n    if user_query is None:\n        user_query = \"\"\n\n    #\
+          \ ========== 1. 解析 LLM 输出的 JSON ==========\n    data = extract_json(llm_output)\n\
+          \n    if data is None or not data.get(\"card_type\"):\n        parsed =\
+          \ parse_combined_query(combined_query)\n        if parsed and parsed.get(\"\
+          card_type\"):\n            data = {\n                \"card_type\": parsed.get(\"\
+          card_type\"),\n                \"card_subtype\": parsed.get(\"card_subtype\"\
+          ),\n                \"face_value\": None,\n                \"country\":\
+          \ parsed.get(\"country\"),\n                \"card_prefix\": None,\n   \
+          \             \"is_complete\": False,\n                \"missing_fields\"\
+          : [\"face_value\"],\n                \"next_question\": \"May I ask what\
+          \ the denomination of this card is?\",\n                \"special_rule_violation\"\
+          : None\n            }\n            if data.get(\"face_value\") is None and\
+          \ llm_output:\n                temp = extract_json(llm_output)\n       \
+          \         if temp and temp.get(\"face_value\"):\n                    data[\"\
+          face_value\"] = temp.get(\"face_value\")\n                    data[\"is_complete\"\
+          ] = True\n                    data[\"missing_fields\"] = []\n          \
+          \          data[\"next_question\"] = None\n\n    if data is None:\n    \
+          \    return {\"message\": \"Please re-enter more detailed card information;\"\
+          }\n\n    # ========== 2. 提取字段 ==========\n    card_type = data.get(\"card_type\"\
+          ) or \"\"\n    card_subtype = data.get(\"card_subtype\") or \"\"\n    face_value\
+          \ = data.get(\"face_value\") or 0\n    country = data.get(\"country\") or\
+          \ \"\"\n    # 清理国家中的不可见字符\n    country = re.sub(r'[\\u200b\\u200c\\u200d\\\
+          u200e\\u200f\\u00a0\\s]', '', country).strip()\n    card_prefix = data.get(\"\
+          card_prefix\") or \"\"\n    is_complete = data.get(\"is_complete\", False)\n\
+          \    next_question = data.get(\"next_question\")\n    special_rule_violation\
+          \ = data.get(\"special_rule_violation\")\n\n    # 标准化卡片类型（去除所有空格）\n    card_type\
+          \ = re.sub(r'\\s+', '', card_type)\n\n    # ========== 2.1 从 combined_query\
+          \ 中提取修正后的国家（针对 Paysafe 卡） ==========\n    if card_type == \"Paysafe卡\" and\
+          \ combined_query:\n        parts = combined_query.strip().split()\n    \
+          \    if len(parts) >= 2:\n            candidate = parts[-1]\n          \
+          \  known_countries = [\"美国\", \"英国\", \"台湾\", \"香港\", \"日本\", \"韩国\", \"\
+          德国\", \"欧盟\", \"加拿大\", \"澳大利亚\", \"瑞士\", \"新西兰\", \"波兰\", \"奥地利\", \"比利时\"\
+          , \"芬兰\", \"法国\", \"希腊\", \"爱尔兰\", \"意大利\", \"卢森堡\", \"荷兰\", \"西班牙\", \"\
+          新加坡\", \"挪威\", \"瑞典\", \"罗马尼亚\", \"捷克\", \"丹麦\", \"匈牙利\", \"保加利亚\", \"墨西哥\"\
+          , \"阿联酋\"]\n            if candidate in known_countries:\n             \
+          \   country = candidate\n\n    # ========== 2.2 强制修正：非欧盟国家使用欧元符号应优先标记 country_not_in_eu\
+          \ ==========\n    if card_type == \"Paysafe卡\" and user_query and \"€\"\
+          \ in user_query and country:\n        eu_countries = [\"奥地利\", \"比利时\",\
+          \ \"保加利亚\", \"塞浦路斯\", \"克罗地亚\", \"捷克\", \"丹麦\",\n                      \
+          \  \"爱沙尼亚\", \"芬兰\", \"法国\", \"德国\", \"希腊\", \"匈牙利\", \"爱尔兰\", \"意大利\",\n\
+          \                        \"拉脱维亚\", \"立陶宛\", \"卢森堡\", \"马耳他\", \"荷兰\", \"\
+          波兰\", \"葡萄牙\",\n                        \"罗马尼亚\", \"斯洛伐克\", \"斯洛文尼亚\", \"\
+          西班牙\", \"瑞典\",\"欧盟\"]\n        if country not in eu_countries:\n       \
+          \     special_rule_violation = \"country_not_in_eu\"\n\n        # ==========\
+          \ 2.3 苹果卡欧元符号冲突处理（正则单词边界，杜绝子串误判） ==========\n    if card_type == \"苹果卡\"\
+          \ and user_query and \"€\" in user_query:\n        \n        # 欧盟国家正则（单词边界，支持中英文及常见简写，不区分大小写）\n\
+          \        eu_pattern = re.compile(\n            r'\\b(?:奥地利|austria|at|比利时|belgium|be|保加利亚|bulgaria|bg|'\n\
+          \            r'克罗地亚|croatia|hr|塞浦路斯|cyprus|cy|捷克|czech|cz|丹麦|denmark|dk|'\n\
+          \            r'爱沙尼亚|estonia|ee|芬兰|finland|fi|法国|france|fr|德国|germany|de|'\n\
+          \            r'希腊|greece|gr|匈牙利|hungary|hu|爱尔兰|ireland|ie|意大利|italy|it|'\n\
+          \            r'拉脱维亚|latvia|lv|立陶宛|lithuania|lt|卢森堡|luxembourg|lu|马耳他|malta|mt|'\n\
+          \            r'荷兰|netherlands|nl|波兰|poland|pl|葡萄牙|portugal|pt|罗马尼亚|romania|ro|'\n\
+          \            r'斯洛伐克|slovakia|sk|斯洛文尼亚|slovenia|si|西班牙|spain|es|瑞典|sweden|se|'\n\
+          \            r'欧盟|eu|europe)\\b', re.IGNORECASE\n        )\n        # 非欧盟国家正则（单词边界）\n\
+          \        non_eu_pattern = re.compile(\n            r'\\b(?:美国|美|us|usa|英国|uk|台湾|tw|香港|hk|日本|jp|韩国|kr|加拿大|ca|'\n\
+          \            r'澳大利亚|au|瑞士|ch|新西兰|nz|波兰|pl|墨西哥|mx|阿联酋|uae)\\b', re.IGNORECASE\n\
+          \        )\n        \n        query_lower = user_query.lower()\n       \
+          \ eu_matches = eu_pattern.findall(query_lower)\n        non_eu_matches =\
+          \ non_eu_pattern.findall(query_lower)\n        \n        # 去重后的欧盟国家列表\n\
+          \        unique_eu = set(eu_matches)\n        # 规则：\n        # 1. 如果出现任何非欧盟国家关键词\
+          \ → 询问\n        # 2. 如果出现两个及以上不同的欧盟国家关键词（如 \"germany france\"）→ 询问\n   \
+          \     # 3. 如果只出现一个欧盟国家关键词（且无非欧盟）→ 放行（不询问）\n        # 4. 如果没有国家关键词 → 不处理，由后续规则4询问\n\
+          \        if non_eu_matches or len(unique_eu) > 1:\n            country =\
+          \ None\n            is_complete = False\n            missing_fields = [\"\
+          country\"]\n            next_question = \"Please specify the country of\
+          \ this Apple Card?\"\n            return {\"message\": next_question}\n\
+          \        # 注意：如果只有一个欧盟国家，继续往下执行，不清空 country\n\n    # ========== 3. 默认值补全\
+          \ ==========\n    if not card_type:\n        card_type = \"苹果卡\"\n\n   \
+          \ if \"苹果卡\" in card_type:\n        if not country:\n            country\
+          \ = \"美国\"\n        if not card_subtype:\n            card_subtype = \"\
+          实体卡\"\n    elif card_type in [\"谷歌卡\", \"亚马逊卡\", \"eBay卡\", \"Steam卡\",\
+          \ \"Xbox卡\", \"雷蛇卡\", \"PSN卡\", \"Apple Pay\", \"Chime\"]:\n        if not\
+          \ country:\n            country = \"美国\"\n\n    # ========== 4. 修正 LLM 可能错误标记的特殊规则\
+          \ ==========\n    if special_rule_violation == \"tw_apple_face_value_too_low\"\
+          \ and card_type == \"苹果卡\" and country == \"台湾\" and face_value >= 500:\n\
+          \        special_rule_violation = None\n    if special_rule_violation ==\
+          \ \"hk_apple_face_value_too_low\" and card_type == \"苹果卡\" and country ==\
+          \ \"香港\" and face_value >= 150:\n        special_rule_violation = None\n\
+          \    if special_rule_violation == \"jp_apple_face_value_too_low\" and card_type\
+          \ == \"苹果卡\" and country == \"日本\" and face_value >= 1000:\n        special_rule_violation\
+          \ = None\n    if special_rule_violation == \"google_korea_face_value_too_low\"\
+          \ and card_type == \"谷歌卡\" and country == \"韩国\" and face_value >= 10000:\n\
+          \        special_rule_violation = None\n\n    # 修正 Paysafe 卡：根据国家对应的最小合法面值清除错误标记\n\
+          \    if special_rule_violation == \"paysafe_face_value_too_low\" and card_type\
+          \ == \"Paysafe卡\":\n        thresholds = {\n            \"英国\": 10, \"瑞士\"\
+          : 10, \"欧盟\": 10, \"希腊\": 10, \"葡萄牙\": 10,\n            \"挪威\": 150, \"\
+          瑞典\": 150,\n            \"罗马尼亚\": 100, \"丹麦\": 100,\n            \"捷克\"\
+          : 300,\n            \"波兰\": 50, \"新西兰\": 50, \"澳大利亚\": 50, \"保加利亚\": 50,\
+          \ \"阿联酋\": 50,\n            \"加拿大\": 25,\n            \"墨西哥\": 200,\n  \
+          \          \"匈牙利\": 5000,\n        }\n        if country in thresholds and\
+          \ face_value >= thresholds[country]:\n            special_rule_violation\
+          \ = None\n\n    # ========== 4.1 修正 LLM 可能错误标记的特殊规则（仅 Chime、雷蛇、PSN） ==========\n\
+          \    norm_type = card_type.lower().replace(\"卡\", \"\").strip()\n    if\
+          \ norm_type in [\"chime\", \"雷蛇\", \"razer\", \"psn\"]:\n        if special_rule_violation\
+          \ == \"razer_face_value_too_low\" and norm_type in [\"雷蛇\", \"razer\"] and\
+          \ face_value >= 1:\n            special_rule_violation = None\n        if\
+          \ special_rule_violation == \"chime_face_value_too_low\" and norm_type ==\
+          \ \"chime\" and face_value >= 10:\n            special_rule_violation =\
+          \ None\n        if special_rule_violation == \"psn_face_value_too_low\"\
+          \ and norm_type == \"psn\" and face_value >= 5:\n            special_rule_violation\
+          \ = None\n\n    # ========== 5. 处理特殊规则违规 ==========\n    if special_rule_violation:\n\
+          \        if special_rule_violation == \"ebay_country_not_us\":\n       \
+          \     return {\"message\": \"Sorry, we currently do not process eBay cards\
+          \ from this country (only supports the United States).\"}\n        elif\
+          \ special_rule_violation == \"amex_prefix_invalid\":\n            return\
+          \ {\"message\": \"Sorry, we currently do not process American Express cards\
+          \ starting with this card number (only supports those starting with 3779\
+          \ or 3751).\"}\n        elif special_rule_violation == \"razer_face_value_too_low\"\
+          :\n            return {\"message\": \"Sorry, we currently do not process\
+          \ cards of this denomination (Razer card denomination must be >= 1)\"}\n\
+          \        elif special_rule_violation == \"psn_face_value_too_low\":\n  \
+          \          return {\"message\": \"Sorry, we currently do not process cards\
+          \ of this denomination (PSN card denomination must be ≥5)\"}\n        elif\
+          \ special_rule_violation == \"tw_apple_face_value_too_low\":\n         \
+          \   return {\"message\": \"Sorry, we currently do not process cards of this\
+          \ denomination (Taiwan Apple cards must be ≥500).\"}\n        elif special_rule_violation\
+          \ == \"hk_apple_face_value_too_low\":\n            return {\"message\":\
+          \ \"Sorry, we currently do not process cards of this denomination (Hong\
+          \ Kong Apple cards must be >150).\"}\n        elif special_rule_violation\
+          \ == \"jp_apple_face_value_too_low\":\n            return {\"message\":\
+          \ \"Sorry, we currently do not handle cards of this denomination (Japanese\
+          \ Apple cards must be ≥1000).\"}\n        elif special_rule_violation ==\
+          \ \"apple_pay_country_not_us\":\n            return {\"message\": \"Sorry,\
+          \ Apple Pay is not currently supported in this country (only available in\
+          \ the United States)\"}\n        elif special_rule_violation == \"chime_country_not_us\"\
+          :\n            return {\"message\": \"Sorry, we currently do not handle\
+          \ Chime from this country (only supports the United States)\"}\n       \
+          \ elif special_rule_violation == \"chime_face_value_too_low\":\n       \
+          \     return {\"message\": \"Sorry, we currently do not handle cards of\
+          \ this denomination (Chime requires >=10)\"}\n        elif special_rule_violation\
+          \ == \"google_korea_face_value_too_low\":  \n            return {\"message\"\
+          : \"Sorry, we currently do not handle cards of this denomination (Korean\
+          \ Google cards must be ≥500)\"}\n        elif special_rule_violation ==\
+          \ \"country_not_in_eu\":\n            return {\"message\": \"This country\
+          \ is not part of the EU, please use another currency or provide an EU country.\"\
+          }\n        elif special_rule_violation == \"paysafe_face_value_too_low\"\
+          :\n            # 调用 check_card_rules 获取准确错误消息\n            _, error_msg\
+          \ = check_card_rules(card_type, card_subtype, face_value, country, card_prefix)\n\
+          \            return {\"message\": error_msg}\n        \n    # ==========\
+          \ 6. 信息不完整，返回问题 ==========\n    if not is_complete:\n        if next_question:\n\
+          \            return {\"message\": next_question}\n        return {\"message\"\
+          : \"Please provide complete card information\"}\n\n    # ========== 7. 检查必填字段\
+          \ ==========\n    if not card_type:\n        return {\"message\": \"Please\
+          \ tell me the card type\"}\n    if face_value <= 0:\n        return {\"\
+          message\": \"Please tell me the denomination of the card\"}\n\n    # ==========\
+          \ 8. 需要卡号前缀的卡片 ==========\n    if card_type in [\"香草卡\", \"美国运通卡\"] and\
+          \ not card_prefix:\n        return {\"message\": \"May I ask what the first\
+          \ 4 digits of the card number are?\"}\n\n    # ========== 9. 检查卡片特殊规则 ==========\n\
+          \n    is_valid, error_msg = check_card_rules(card_type, card_subtype, face_value,\
+          \ country, card_prefix)\n    if not is_valid:\n        return {\"message\"\
+          : error_msg}\n\n    # ========== 10. 获取外汇值 ==========\n    forex_value_num\
+          \ = extract_forex_value(forex_result)\n\n    # ========== 10.5 欧盟国家映射 ==========\n\
+          \    card_type = re.sub(r'\\s+', '', card_type)\n    eu_countries = [\n\
+          \        \"奥地利\", \"比利时\", \"塞浦路斯\", \"克罗地亚\", \"爱沙尼亚\", \"芬兰\", \"法国\"\
+          , \"德国\",\n        \"希腊\", \"爱尔兰\", \"意大利\", \"拉脱维亚\", \"立陶宛\", \"卢森堡\"\
+          , \"马耳他\", \"荷兰\",\n        \"葡萄牙\", \"斯洛伐克\", \"斯洛文尼亚\", \"西班牙\", \"保加利亚\"\
+          , \"捷克\", \"丹麦\",\n        \"匈牙利\", \"波兰\", \"罗马尼亚\", \"瑞典\"\n    ]\n  \
+          \  paysafe_exceptions = [\n        \"保加利亚\", \"捷克\", \"丹麦\", \"希腊\", \"\
+          匈牙利\", \"波兰\", \"葡萄牙\", \"罗马尼亚\", \"瑞典\"\n    ]\n\n    xbox_exceptions =\
+          \ [\"丹麦\", \"瑞典\", \"波兰\", \"捷克\", \"匈牙利\"]\n    \n    if card_type in [\"\
+          PSN卡\", \"雷蛇卡\"] and country in eu_countries:\n        country = \"欧盟\"\n\
+          \    elif card_type == \"Paysafe卡\" and country in eu_countries and country\
+          \ not in paysafe_exceptions:\n        country = \"欧盟\"\n    elif card_type\
+          \ == \"Xbox卡\" and country in eu_countries and country not in  xbox_exceptions:\n\
+          \        country = \"欧盟\"\n\n    # ========== 11. 获取汇率 ==========\n    exchange_rate\
+          \ = get_exchange_rate(rate_result, card_type, card_subtype, face_value,\
+          \ country)\n\n    # 如果汇率未找到，输出详细调试信息，下面的代码暂时用于调试；上线后可以删除或注释掉或者更加详细的提示信息；\n\
+          \    if exchange_rate is None:\n        debug_lines = []\n        if rate_result\
+          \ and len(rate_result) > 0:\n            content = rate_result[0].get(\"\
+          content\", \"\")\n            lines = content.split('\\n')\n           \
+          \ for line in lines:\n                if '|' in line and '---' not in line:\n\
+          \                    parts = [p.strip() for p in line.split('|') if p.strip()]\n\
+          \                    if len(parts) >= 1:\n                        range_text\
+          \ = parts[0]\n                        region = parts[3] if len(parts) >=\
+          \ 4 else ''\n                        debug_lines.append(f\"range: {range_text},\
+          \ region: {region}\")\n        debug_info = \"\\n\".join(debug_lines)\n\
+          \        return {\"message\": f\"当前卡类型为{card_type},子类型为{card_subtype},面值为{face_value},国家为{country},\\\
+          n\\nWait a moment\\n\\n[调试] 表格行:\\n{debug_info}\"}\n        #return {\"\
+          message\": f\"Wait a moment\"}\n\n    # ========== 12. 计算报价 ==========\n\
+          \    try:\n        final_price = round(face_value * exchange_rate * forex_value_num\
+          \ * 0.98)\n        # 向下取整到百位（直接舍去后两位）测试阶段先注释掉，等确定了再开启\n        yushu=final_price%1000\n\
+          \        if yushu >= 500:\n          final_price = final_price+(1000-yushu)\
+          \  \n        else:\n            final_price = (final_price // 1000) * 1000\n\
+          \        return {\"message\": f\"{final_price}\"}\n    except Exception\
+          \ as e:\n        return {\"message\": f\"计算出错：{str(e)}\"}\n    \n"
+        code_language: python3
+        outputs:
+          message:
+            children: null
+            type: string
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        title: 代码执行计算结果
+        type: code
+        variables:
+        - value_selector:
+          - '1774343927230'
+          - text
+          value_type: string
+          variable: llm_output
+        - value_selector:
+          - '1774251580617'
+          - result
+          value_type: array[object]
+          variable: forex_result
+        - value_selector:
+          - '1780042373256'
+          - text
+          value_type: string
+          variable: rate_result
+        - value_selector:
+          - '1774430433486'
+          - query
+          value_type: string
+          variable: combined_query
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: user_query
+      height: 52
+      id: '1774249806723'
+      position:
+        x: 1983.0773195829738
+        y: 15.054249100449042
+      positionAbsolute:
+        x: 1983.0773195829738
+        y: 15.054249100449042
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - RaT9SrT6D+mxacrb+Z185eaOJA8+5kmxkgW0Uu4aoj3FW3SKr/LKaoLlOgXyiT6e
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: gte-rerank
+            provider: langgenius/tongyi/tongyi
+          score_threshold: null
+          top_k: 5
+        query_attachment_selector: []
+        query_variable_selector:
+        - sys
+        - query
+        retrieval_mode: multiple
+        selected: false
+        title: 知识库检索外汇值
+        type: knowledge-retrieval
+      height: 90
+      id: '1774251580617'
+      position:
+        x: 1626.5689174101567
+        y: -73.00442446887686
+      positionAbsolute:
+        x: 1626.5689174101567
+        y: -73.00442446887686
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1774075229710'
+          - result
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 40
+        model:
+          completion_params:
+            response_format: json_object
+            temperature: 0
+          mode: chat
+          name: qwen3.7-max
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: dc60aef0-46d1-44aa-acf1-e83ea101e69b
+          role: system
+          text: "【系统指令】\n你是一个严格的信息提取助手。你的唯一任务是根据给定的询问规则和用户输入，提取卡片信息并输出指定的 JSON 格式。你绝对不能进行任何计算，绝对不能输出任何非\
+            \ JSON 内容。\n\n# 角色\n你是一个信息提取助手，只负责提取卡片信息，绝不进行计算。\n\n# 可识别的卡片类型及关键词（按优先级，匹配到即使用）\n\
+            - 苹果卡：关键词 [\"苹果卡\", \"苹果\", \"apple\", \"itunes\"]\n- 谷歌卡：关键词 [\"谷歌卡\"\
+            , \"谷歌\", \"google\"]\n- 亚马逊卡：关键词 [\"亚马逊卡\", \"亚马逊\", \"amazon\"]\n- eBay卡：关键词\
+            \ [\"ebay卡\", \"ebay\"]\n- Steam卡：关键词 [\"steam卡\", \"steam\"]\n- Xbox卡：关键词\
+            \ [\"xbox卡\", \"xbox\"]\n- 雷蛇卡：关键词 [\"雷蛇卡\", \"雷蛇\", \"razer\"]\n- 丝芙兰卡：关键词\
+            \ [\"丝芙兰卡\", \"丝芙兰\", \"sephora\"]\n- 香草卡：关键词 [\"香草卡\", \"香草\", \"vanilla\"\
+            ]\n- 美国运通卡：关键词 [\"美国运通卡\", \"运通卡\", \"amex\"]\n- PSN卡：关键词 [\"psn卡\", \"\
+            psn\", \"playstation\"]\n- Apple Pay：关键词 [\"apple pay\", \"applepay\"\
+            ]\n- Chime：关键词 [\"chime\"]\n- Paysafe：关键词 [\"paysafe卡\", \"paysafe\",\
+            \ \"paysafecard\"]\n\n- **语言要求**：当需要向用户提问时（即设置 `is_complete: false` 并提供\
+            \ `next_question`），`next_question` 字段的内容必须使用英文。例如，询问国家时应输出 \"Which country\
+            \ is this card for?\" 而不是中文。\n\n# 苹果卡子类型关键词（当用户指定时提取）\n- 实体卡：关键词 [\"实体卡\"\
+            , \"实体\", \"physical\"]\n- 竖卡：关键词 [\"竖卡\", \"竖\", \"vertical\"]\n- 电子卡：关键词\
+            \ [\"电子卡\", \"电子\", \"electronic\"]\n- 代码卡：关键词 [\"代码卡\", \"代码\", \"code\"\
+            ]\n- 当用户输入中包含 “code”、“physical”、“vertical”、“electronic” 等英文词，且卡片类型为苹果卡时，应将其转换为对应的中文子类型（代码卡、实体卡、竖卡、电子卡），并填入\
+            \ `card_subtype` 字段。\n\n【禁止】\n- 禁止计算报价、汇率、金额\n- 禁止输出“您询问了”或任何计算结果\n- 禁止添加任何解释、标点、注释等非\
+            \ JSON 内容\n\n# 核心规则\n1. **绝对不要计算报价！**\n2. **只输出纯 JSON**，不要有任何额外文字。\n3.\
+            \ 输出必须以 { 开头，以 } 结束。\n4. **只有当 card_type 或 face_value 缺失时，才设置 is_complete:\
+            \ false**。其他字段缺失时，不视为信息不完整，直接设为 null，is_complete 仍为 true。但以下情况除外：\n  \
+            \ - 对于苹果卡、PSN卡、Paysafe卡、Xbox卡：当用户使用欧元符号 € 且没有明确国家时，视为国家缺失，**必须设置 is_complete:\
+            \ false 并询问国家，绝对不要将 country 设为“欧盟”**。\n   - 对于 Steam 卡、雷蛇卡：当用户使用欧元符号 €\
+            \ 且没有明确国家时，**自动将 country 设为“欧盟”，is_complete 为 true，不询问**。\n5. **国家/地区识别**：根据用户输入中的国家名称、货币符号或货币名称识别，映射如下：\n\
+            \   - 美国：关键词 [\"美国\", \"美\", \"us\", \"usa\", \"$\", \"美元\", \"美金\", \"\
+            usd\"]\n   - 英国：关键词 [\"英国\", \"英\", \"uk\", \"£\", \"英镑\", \"gbp\"]\n\
+            \   - 台湾：[\"台湾\", \"taiwan\"]\n   - 香港：[\"香港\", \"hk\", \"hongkong\"]\n\
+            \   - 日本：[\"日本\", \"jp\", \"japan\"]\n   - 韩国：[\"韩国\", \"kr\", \"韩元\"\
+            ]\n   - 德国：[\"德国\", \"de\",\"germany\"]\n   - 欧盟：[\"欧盟\", \"eu\", \"欧元\"\
+            , \"eur\", \"Europe\"]  # 注意：仅当用户明确说“欧盟”或由默认规则产生时才使用\n   - 加拿大：[\"加拿大\"\
+            , \"ca\", \"加元\", \"cad\"]\n   - 澳大利亚：[\"澳大利亚\", \"澳洲\", \"au\", \"澳元\"\
+            , \"aud\"]\n   - 瑞士：[\"瑞士\", \"ch\", \"瑞士法郎\", \"chf\"]\n   - 新西兰：[\"\
+            新西兰\", \"nz\", \"纽元\", \"nzd\"]\n   - 波兰：[\"波兰\", \"pl\", \"兹罗提\", \"\
+            pln\"]\n   - 奥地利：[\"奥地利\", \"At\", \"Austria\",\"aut\",\"at\"]\n   - 比利时：[\"\
+            比利时\", \"be\",\"BEL\",\"Belgium\"]\n   - 芬兰：[\"芬兰\",\"Finland\"]\n   -\
+            \ 法国：[\"法国\", \"fr\", \"Fr\",\"FRA\",\"France\"]\n   - 希腊：[\"希腊\", \"\
+            gr\", \"Gr\",\"GRC\",\"Greece\"]\n   - 爱尔兰：[\"爱尔兰\", \"ie\", \"Ie\",\"\
+            IRL\",\"Ireland\"]\n   - 意大利：[\"意大利\", \"it\", \"ITA\",\"Italy\"]\n  \
+            \ - 卢森堡：[\"卢森堡\", \"lu\",\"LUX\",\"Luxembourg\"]\n   - 荷兰：[\"荷兰\", \"\
+            nl\", \"NLD\",\"Netherlands\"]\n   - 西班牙：[\"西班牙\", \"es\", \"ESP\",\"\
+            Spain\"]\n   - 挪威：[\"挪威\", \"norway\"]\n   - 瑞典：[\"瑞典\", \"sweden\"]\n\
+            \   - 罗马尼亚：[\"罗马尼亚\", \"romania\"]\n   - 捷克：[\"捷克\", \"czech\"]\n   -\
+            \ 丹麦：[\"丹麦\", \"denmark\"]\n   - 匈牙利：[\"匈牙利\", \"hungary\"]\n   - 保加利亚：[\"\
+            保加利亚\", \"bulgaria\"]\n   - 墨西哥：[\"墨西哥\", \"mexico\"]\n   - 阿联酋：[\"阿联酋\"\
+            , \"uae\", \"united arab emirates\"]\n   - 克罗地亚：[\"克罗地亚\", \"croatia\"\
+            ]\n   - 哥伦比亚：[\"哥伦比亚\", \"Colombia\"]\n   - 沙特阿拉伯：[\"沙特阿拉伯\", \"Saudi\
+            \ Arabia\"]\n   - 智利：[\"智利\", \"Chile\",\"Republic of Chile\"]\n   - 印度：[\"\
+            印度\", \"India\"]\n   - 南非：[\"南非\", \"South Africa\"]\n   - 以色列：[\"以色列\"\
+            , \"Israel\"]\n6. **欧元符号国家处理（针对 PSN卡、Paysafe卡、Xbox卡）**：**仅当用户输入中包含欧元符号\
+            \ € 且给出了国家时**，才执行以下逻辑。此规则不适用于其他货币符号（如 $、£）。\n   - **如果不属于欧盟，则必须设置 special_rule_violation\
+            \ = \"country_not_in_eu\"**，country 保留原值，is_complete 为 true。**此规则优先级最高，即使面值也满足其他违规条件，也仅标记此违规。**\n\
+            \   - 如果属于欧盟，则：\n     - 对于 PSN卡：**将 country 字段的值设置为 \"欧盟\"**（不要保留原国家名）。\n\
+            \     - 对于 Paysafe卡：如果国家属于以下例外列表（保加利亚、捷克、丹麦、希腊、匈牙利、波兰、葡萄牙、罗马尼亚、瑞典），则**保留原国家名**（不替换为“欧盟”）；否则（如德国、法国等）替换为“欧盟”。\n\
+            \     - 对于 Xbox卡：如果国家属于以下例外列表（丹麦、瑞典、波兰、捷克、匈牙利），则**保留原国家名**（不替换为“欧盟”）；否则（如德国、法国等）替换为“欧盟”。\n\
+            \   欧盟成员国完整列表（共27国）：奥地利、比利时、保加利亚、塞浦路斯、克罗地亚、捷克、丹麦、爱沙尼亚、芬兰、法国、德国、希腊、匈牙利、爱尔兰、意大利、拉脱维亚、立陶宛、卢森堡、马耳他、荷兰、波兰、葡萄牙、罗马尼亚、斯洛伐克、斯洛文尼亚、西班牙、瑞典。\n\
+            \   Paysafe卡例外国家：保加利亚、捷克、丹麦、希腊、匈牙利、波兰、葡萄牙、罗马尼亚、瑞典。\n   Xbox卡例外国家：丹麦、瑞典、波兰、捷克、匈牙利。\n\
+            \   注意：英国已脱欧，不属于欧盟；瑞士、挪威等不属于欧盟。\n   **对于 Steam 卡、雷蛇卡，不进行此验证（即不会标记 country_not_in_eu）。**\n\
+            \n7. **欧元符号国家验证（针对苹果卡）**：**仅当用户输入中明确包含欧元符号 € 时**，才检查该国是否属于欧盟成员国。\n   -\
+            \ 如果用户输入中**没有**欧元符号 €，则**绝对不要设置 special_rule_violation = \"country_not_in_eu\"\
+            **，即使国家不属于欧盟（如瑞士），也正常处理（由后续汇率表决定是否支持）。\n   - 如果包含 € 且国家属于欧盟，则正常设置 country（保留原值），不标记违规。\n\
+            \   - 如果包含 € 且国家不属于欧盟，**不要设置 special_rule_violation**，正常提取国家原值（后续代码会处理询问）。\n\
+            \n8. **对于苹果卡，如果用户未提供卡片类型（子类型），card_subtype 设为 null，不要询问。** 后续流程会自动使用默认值（实体卡）。\n\
+            9. **对于需要卡号前缀的卡片（香草卡、美国运通卡），如果用户未提供，card_prefix 设为 null，不要询问。** 后续代码会处理。\n\
+            10. **默认卡片类型**：如果用户输入中没有匹配任何卡片类型关键词，则默认 card_type = \"苹果卡\"。\n11. **默认国家**：对于苹果卡，如果用户没有提供任何国家或货币信息（且没有使用欧元符号导致需要询问），默认\
+            \ country = \"美国\"。但若用户使用了欧元符号且未提供国家，则按规则4处理（苹果卡询问，Steam卡默认欧盟）。\n12. **确保\
+            \ is_complete**：只要 card_type 和 face_value 存在，且国家字段按照上述规则处理（要么有值，要么因缺失而询问），is_complete\
+            \ 应为 true（除非国家缺失需要询问）。\n13. **Paysafe卡特殊规则**：根据用户给出的国家，判断面值是否 **严格小于**\
+            \ 阈值（即 face_value < threshold 才违规，face_value == threshold 合法）。具体阈值从询问规则（{{{#context#}}}）中获取。LLM\
+            \ 需根据规则设置 `special_rule_violation` 为 `\"paysafe_face_value_too_low\"`\
+            \ **当且仅当 face_value < 阈值**。\n\n# 询问规则\n{{{#context#}}}\n\n# 输出 JSON 格式\n\
+            {\n  \"card_type\": \"卡片类型\",\n  \"card_subtype\": \"子类型/null\",\n  \"\
+            face_value\": 数字,\n  \"country\": \"国家/null\",\n  \"card_prefix\": \"\
+            卡号前4位/null\",\n  \"is_complete\": true/false,\n  \"missing_fields\": [],\n\
+            \  \"next_question\": \"下一个问题/null\",\n  \"special_rule_violation\": \"\
+            违规类型/null\"\n}\n\n# special_rule_violation 可选值\n- \"country_not_in_eu\"\
+            : 用户给出的国家不属于欧盟（当使用欧元货币时）\n- \"paysafe_face_value_too_low\": 面值低于Paysafe卡对应国家的阈值\n\
+            - \"razer_face_value_too_low\": 雷蛇卡面值过低\n- \"psn_face_value_too_low\"\
+            : PSN卡面值过低\n- \"tw_apple_face_value_too_low\": 台湾苹果卡面值过低\n- \"hk_apple_face_value_too_low\"\
+            : 香港苹果卡面值过低\n- \"jp_apple_face_value_too_low\": 日本苹果卡面值过低\n- \"ebay_country_not_us\"\
+            : eBay卡国家不是美国\n- \"amex_prefix_invalid\": 美国运通卡号前缀无效\n- \"chime_face_value_too_low\"\
+            : Chime卡面值过低\n- \"chime_country_not_us\": Chime卡国家不是美国\n- \"apple_pay_country_not_us\"\
+            : Apple Pay国家不是美国\n- \"google_korea_face_value_too_low\": 韩国谷歌卡面值过低\n\n\
+            # 示例（包含各种情况）\n\n## 苹果卡\n用户：「苹果卡 加拿大 30」\n输出：{\"card_type\":\"苹果卡\",\"\
+            card_subtype\":null,\"face_value\":30,\"country\":\"加拿大\",\"card_prefix\"\
+            :null,\"is_complete\":true,\"missing_fields\":[],\"next_question\":null,\"\
+            special_rule_violation\":null}\n\n用户：「苹果卡 100」\n输出：{\"card_type\":\"苹果卡\"\
+            ,\"card_subtype\":null,\"face_value\":100,\"country\":\"美国\",\"card_prefix\"\
+            :null,\"is_complete\":true,\"missing_fields\":[],\"next_question\":null,\"\
+            special_rule_violation\":null}\n\n用户：「100 us」\n输出：{\"card_type\":\"苹果卡\"\
+            ,\"card_subtype\":null,\"face_value\":100,\"country\":\"美国\",\"card_prefix\"\
+            :null,\"is_complete\":true,\"missing_fields\":[],\"next_question\":null,\"\
+            special_rule_violation\":null}\n\n用户：「5 at apple card」 \n输出：{\"card_type\"\
+            :\"苹果卡\",\"card_subtype\":null,\"face_value\":5,\"country\":\"奥地利\",\"\
+            card_prefix\":null,\"is_complete\":true,\"missing_fields\":[],\"next_question\"\
+            :null,\"special_rule_violation\":null}\n\n用户：「$150 us code card how much?」\n\
+            输出：{\"card_type\":\"苹果卡\",\"card_subtype\":\"代码卡\",\"face_value\":150,\"\
+            country\":\"美国\",\"card_prefix\":null,\"is_complete\":true,\"missing_fields\"\
+            :[],\"next_question\":null,\"special_rule_violation\":null}\n\n## 苹果卡（欧盟国家\
+            \ → 保留原国家，不违规）\n用户：「10€ german apple card」\n输出：{\"card_type\":\"苹果卡\"\
+            ,\"card_subtype\":null,\"face_value\":10,\"country\":\"德国\",\"card_prefix\"\
+            :null,\"is_complete\":true,\"missing_fields\":[],\"next_question\":null,\"\
+            special_rule_violation\":null}\n\n## 苹果卡（欧元符号+非欧盟国家 → 不标记违规，正常提取）\n用户：「10€\
+            \ uk apple card」\n输出：{\"card_type\":\"苹果卡\",\"card_subtype\":null,\"face_value\"\
+            :10,\"country\":\"英国\",\"card_prefix\":null,\"is_complete\":true,\"missing_fields\"\
+            :[],\"next_question\":null,\"special_rule_violation\":null}\n\n## 苹果卡（无欧元符号，不触发欧盟验证）\n\
+            用户：「50 switzerland apple card physical how much?」\n输出：{\"card_type\":\"\
+            苹果卡\",\"card_subtype\":\"实体卡\",\"face_value\":50,\"country\":\"瑞士\",\"\
+            card_prefix\":null,\"is_complete\":true,\"missing_fields\":[],\"next_question\"\
+            :null,\"special_rule_violation\":null}\n\n## PSN卡（欧盟国家 → 替换为“欧盟”）\n用户：「10€\
+            \ german psn card」\n输出：{\"card_type\":\"PSN卡\",\"card_subtype\":null,\"\
+            face_value\":10,\"country\":\"欧盟\",\"card_prefix\":null,\"is_complete\"\
+            :true,\"missing_fields\":[],\"next_question\":null,\"special_rule_violation\"\
+            :null}\n\n## PSN卡（非欧盟国家 → 标记违规）\n用户：「10€ uk psn card」\n输出：{\"card_type\"\
+            :\"PSN卡\",\"card_subtype\":null,\"face_value\":10,\"country\":\"英国\",\"\
+            card_prefix\":null,\"is_complete\":true,\"missing_fields\":[],\"next_question\"\
+            :null,\"special_rule_violation\":\"country_not_in_eu\"}\n\n## PSN卡（欧元符号无国家，需询问）\n\
+            用户：「100€ psn card」\n输出：{\"card_type\":\"PSN卡\",\"card_subtype\":null,\"\
+            face_value\":100,\"country\":null,\"card_prefix\":null,\"is_complete\"\
+            :false,\"missing_fields\":[\"country\"],\"next_question\":\"Which country\
+            \ is this PSN card for?\",\"special_rule_violation\":null}\n\n## Steam卡（不验证欧盟，且欧元符号自动默认为欧盟）\n\
+            用户：「steam 100」\n输出：{\"card_type\":\"Steam卡\",\"card_subtype\":null,\"\
+            face_value\":100,\"country\":\"美国\",\"card_prefix\":null,\"is_complete\"\
+            :true,\"missing_fields\":[],\"next_question\":null,\"special_rule_violation\"\
+            :null}\n\n用户：「100 steam uk」\n输出：{\"card_type\":\"Steam卡\",\"card_subtype\"\
+            :null,\"face_value\":100,\"country\":\"英国\",\"card_prefix\":null,\"is_complete\"\
+            :true,\"missing_fields\":[],\"next_question\":null,\"special_rule_violation\"\
+            :null}\n\n用户：「€100 steam card」  # 欧元符号无国家，自动设为欧盟，不询问\n输出：{\"card_type\"\
+            :\"Steam卡\",\"card_subtype\":null,\"face_value\":100,\"country\":\"欧盟\"\
+            ,\"card_prefix\":null,\"is_complete\":true,\"missing_fields\":[],\"next_question\"\
+            :null,\"special_rule_violation\":null}\n\n## 亚马逊卡\n用户：「100 amazon card」\n\
+            输出：{\"card_type\":\"亚马逊卡\",\"card_subtype\":null,\"face_value\":100,\"\
+            country\":\"美国\",\"card_prefix\":null,\"is_complete\":true,\"missing_fields\"\
+            :[],\"next_question\":null,\"special_rule_violation\":null}\n\n用户：「亚马逊卡\
+            \ 英国 100」\n输出：{\"card_type\":\"亚马逊卡\",\"card_subtype\":null,\"face_value\"\
+            :100,\"country\":\"英国\",\"card_prefix\":null,\"is_complete\":true,\"missing_fields\"\
+            :[],\"next_question\":null,\"special_rule_violation\":null}\n\n## Paysafe卡\n\
+            用户：「paysafe 10 uk」\n输出：{\"card_type\":\"Paysafe卡\",\"card_subtype\":null,\"\
+            face_value\":10,\"country\":\"英国\",\"card_prefix\":null,\"is_complete\"\
+            :true,\"missing_fields\":[],\"next_question\":null,\"special_rule_violation\"\
+            :null}\n\n## Paysafe卡（欧盟国家但属于例外 → 保留原国家）\n用户：「10€ greece paysafe card」\n\
+            输出：{\"card_type\":\"Paysafe卡\",\"card_subtype\":null,\"face_value\":10,\"\
+            country\":\"希腊\",\"card_prefix\":null,\"is_complete\":true,\"missing_fields\"\
+            :[],\"next_question\":null,\"special_rule_violation\":null}\n\n## Paysafe卡（欧盟国家且非例外\
+            \ → 替换为欧盟）\n用户：「10€ german paysafe card」\n输出：{\"card_type\":\"Paysafe卡\"\
+            ,\"card_subtype\":null,\"face_value\":10,\"country\":\"欧盟\",\"card_prefix\"\
+            :null,\"is_complete\":true,\"missing_fields\":[],\"next_question\":null,\"\
+            special_rule_violation\":null}\n\n## Paysafe卡（非欧盟国家，使用欧元符号，优先标记国家违规）\n\
+            用户：「10€ swiss paysafe card」\n输出：{\"card_type\":\"Paysafe卡\",\"card_subtype\"\
+            :null,\"face_value\":10,\"country\":\"瑞士\",\"card_prefix\":null,\"is_complete\"\
+            :true,\"missing_fields\":[],\"next_question\":null,\"special_rule_violation\"\
+            :\"country_not_in_eu\"}\n\n## Paysafe卡（非欧盟国家，未使用欧元符号，面值合法）\n用户：「paysafe\
+            \ 10 switzerland」\n输出：{\"card_type\":\"Paysafe卡\",\"card_subtype\":null,\"\
+            face_value\":10,\"country\":\"瑞士\",\"card_prefix\":null,\"is_complete\"\
+            :true,\"missing_fields\":[],\"next_question\":null,\"special_rule_violation\"\
+            :null}\n\n## Xbox卡（欧盟国家，非例外 → 替换为欧盟）\n用户：「€100 germany xbox card」\n输出：{\"\
+            card_type\":\"Xbox卡\",\"card_subtype\":null,\"face_value\":100,\"country\"\
+            :\"欧盟\",\"card_prefix\":null,\"is_complete\":true,\"missing_fields\":[],\"\
+            next_question\":null,\"special_rule_violation\":null}\n\n## Xbox卡（欧盟国家，例外\
+            \ → 保留原国家）\n用户：「€100 denmark xbox card」\n输出：{\"card_type\":\"Xbox卡\",\"\
+            card_subtype\":null,\"face_value\":100,\"country\":\"丹麦\",\"card_prefix\"\
+            :null,\"is_complete\":true,\"missing_fields\":[],\"next_question\":null,\"\
+            special_rule_violation\":null}\n\n## Xbox卡（非欧盟国家 → 标记违规）\n用户：「€100 switzerland\
+            \ xbox card」\n输出：{\"card_type\":\"Xbox卡\",\"card_subtype\":null,\"face_value\"\
+            :100,\"country\":\"瑞士\",\"card_prefix\":null,\"is_complete\":true,\"missing_fields\"\
+            :[],\"next_question\":null,\"special_rule_violation\":\"country_not_in_eu\"\
+            }\n\n## Xbox卡（欧元符号无国家，需询问）\n用户：「€100 xbox card」\n输出：{\"card_type\":\"\
+            Xbox卡\",\"card_subtype\":null,\"face_value\":100,\"country\":null,\"card_prefix\"\
+            :null,\"is_complete\":false,\"missing_fields\":[\"country\"],\"next_question\"\
+            :\"Which country is this Xbox card for?\",\"special_rule_violation\":null}\n\
+            \n## 其他卡片\n用户：「100 香草卡」\n输出：{\"card_type\":\"香草卡\",\"card_subtype\":null,\"\
+            face_value\":100,\"country\":null,\"card_prefix\":null,\"is_complete\"\
+            :true,\"missing_fields\":[],\"next_question\":null,\"special_rule_violation\"\
+            :null}\n\n用户：「eBay卡 英国 100」\n输出：{\"card_type\":\"eBay卡\",\"card_subtype\"\
+            :null,\"face_value\":100,\"country\":\"英国\",\"card_prefix\":null,\"is_complete\"\
+            :true,\"missing_fields\":[],\"next_question\":null,\"special_rule_violation\"\
+            :\"ebay_country_not_us\"}\n\n# 注意事项\n- 根据用户输入中的关键词准确识别 card_type，不要默认苹果卡（除非无任何匹配）。\n\
+            - 根据货币符号和货币名称识别 country，但欧元符号 € 的处理依卡片类型不同：苹果卡、PSN卡、Paysafe卡、Xbox卡需询问国家（无国家时设置\
+            \ is_complete: false）；Steam卡、雷蛇卡自动设为欧盟。\n- 当用户明确提到“香草卡”、“香草”、“vanilla”时，card_type\
+            \ 必须为“香草卡”，不得默认或误判为苹果卡。\n- 对于默认国家规则中列出的卡片，如果用户没有提供国家，自动将 country 设为“美国”（除非涉及欧元符号需要特殊处理）。\n\
+            - 特殊规则（如面值限制、国家限制、欧盟国家验证）由后续代码节点处理，LLM 只需在 special_rule_violation 中标记对应的违规类型。\n\
+            - 绝对不要自行补全缺失信息（国家除外，按默认规则补全），也不要做任何计算。\n现在，开始处理用户输入，只输出 JSON。"
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        title: LLM_信号提取，输出json
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1774343927230'
+      position:
+        x: 1161.6388504654037
+        y: 15.054249100449042
+      positionAbsolute:
+        x: 1161.6388504654037
+        y: 15.054249100449042
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(llm_output, user_query):\n    import json\n    import re\n\
+          \n    try:\n        data = json.loads(llm_output)\n    except:\n       \
+          \ data = {}\n\n    card_type_raw = data.get(\"card_type\", \"\")\n    country\
+          \ = data.get(\"country\", \"\")\n    card_subtype = data.get(\"card_subtype\"\
+          , \"\")\n\n    # ---------- 标准化卡片类型（去除所有空格） ----------\n    card_type =\
+          \ re.sub(r'\\s+', '', card_type_raw)\n\n    # ---------- 英文别名映射（提高鲁棒性） ----------\n\
+          \    alias_map = {\n        \"Amazon\": \"亚马逊卡\",\n        \"Google\": \"\
+          谷歌卡\",\n        \"Steam\": \"Steam卡\",\n        \"Xbox\": \"Xbox卡\",\n \
+          \       \"Razer\": \"雷蛇卡\",\n        \"Sephora\": \"丝芙兰卡\",\n        \"\
+          Vanilla\": \"香草卡\",\n        \"Amex\": \"美国运通卡\",\n        \"PSN\": \"PSN卡\"\
+          ,\n        \"ApplePay\": \"Apple Pay\",\n        \"Chime\": \"Chime\",\n\
+          \        \"Paysafe\": \"Paysafe卡\",\n        \"Apple\": \"苹果卡\",    \n \
+          \   }\n    if card_type in alias_map:\n        card_type = alias_map[card_type]\n\
+          \n    # ---------- 从原始输入中补充国家（使用正则边界匹配） ----------\n    if not country and\
+          \ user_query:\n        query_lower = user_query.lower()\n        country_keywords\
+          \ = {\n            \"美国\": [r\"\\bus\\b\", r\"\\busa\\b\", \"美国\", \"美\"\
+          ],\n            \"英国\": [r\"\\buk\\b\", \"英国\", \"英\"],\n            \"\
+          台湾\": [\"台湾\", \"tw\"],\n            \"香港\": [\"香港\", \"hk\"],\n       \
+          \     \"日本\": [\"日本\", \"jp\"],\n            \"韩国\": [\"韩国\", \"kr\", \"\
+          korea\"],\n            \"德国\": [r\"\\bde\\b\", \"德国\"],\n            \"\
+          欧盟\": [r\"\\beu\\b\", \"欧盟\", \"europe\"],\n            \"加拿大\": [r\"\\\
+          bca\\b\", \"加拿大\", \"canada\"],\n            \"澳大利亚\": [r\"\\bau\\b\", \"\
+          澳大利亚\", \"australia\"],\n            \"瑞士\": [r\"\\bch\\b\", \"瑞士\", \"\
+          switzerland\"],\n            \"新西兰\": [r\"\\bnz\\b\", \"新西兰\"],\n      \
+          \      \"波兰\": [r\"\\bpl\\b\", \"波兰\"],\n            \"奥地利\": [r\"\\bat\\\
+          b\", \"奥地利\"],\n            \"比利时\": [r\"\\bbe\\b\", \"比利时\"],\n       \
+          \     \"芬兰\": [r\"\\bfi\\b\", \"芬兰\"],\n            \"法国\": [r\"\\bfr\\\
+          b\", \"法国\"],\n            \"希腊\": [r\"\\bgr\\b\", \"希腊\"],\n          \
+          \  \"爱尔兰\": [r\"\\bie\\b\", \"爱尔兰\"],\n            \"意大利\": [r\"\\bit\\\
+          b\", \"意大利\"],\n            \"卢森堡\": [r\"\\blu\\b\", \"卢森堡\"],\n       \
+          \     \"荷兰\": [r\"\\bnl\\b\", \"荷兰\"],\n            \"西班牙\": [r\"\\bes\\\
+          b\", \"西班牙\"],\n            \"新加坡\": [r\"\\bsg\\b\", \"新加坡\", \"singapore\"\
+          ],\n            \"克罗地亚\": [r\"\\bcroatia\\b\", r\"\\bhr\\b\", \"克罗地亚\"],\n\
+          \            \"罗马尼亚\": [r\"\\bromania\\b\", r\"\\bro\\b\", \"罗马尼亚\"],\n\
+          \            \"挪威\": [r\"\\bno\\b\", \"挪威\", \"norway\"],\n            \"\
+          瑞典\": [r\"\\bse\\b\", \"瑞典\", \"sweden\"],\n            \"捷克\": [r\"\\bcz\\\
+          b\", \"捷克\", \"czech\"],\n            \"丹麦\": [r\"\\bdk\\b\", \"丹麦\", \"\
+          denmark\"],\n            \"匈牙利\": [r\"\\bhu\\b\", \"匈牙利\", \"hungary\"],\n\
+          \            \"保加利亚\": [r\"\\bbg\\b\", \"保加利亚\", \"bulgaria\"],\n      \
+          \      \"墨西哥\": [r\"\\bmx\\b\", \"墨西哥\", \"mexico\"],\n            \"阿联酋\"\
+          : [r\"\\bae\\b\", \"阿联酋\", \"uae\"],\n            \"哥伦比亚\": [r\"\\bco\\\
+          b\", \"哥伦比亚\", \"Colombia\"],\n            \"沙特阿拉伯\": [r\"\\bsa\\b\", \"\
+          沙特阿拉伯\", \"Saudi Arabia\"],\n            \"智利\": [r\"\\bcl\\b\", \"智利\"\
+          , \"Chile\", \"Republic of Chile\"],\n            \"印度\": [r\"\\bin\\b\"\
+          , \"印度\", \"India\"],\n            \"南非\": [r\"\\bza\\b\", \"南非\", \"South\
+          \ Africa\"],\n            \"以色列\": [r\"\\bil\\b\", \"以色列\", \"Israel\"],\n\
+          \        }\n        for std, patterns in country_keywords.items():\n   \
+          \         for pattern in patterns:\n                if pattern.startswith(r'\\\
+          b'):\n                    if re.search(pattern, query_lower):\n        \
+          \                country = std\n                        break\n        \
+          \        else:\n                    if pattern in query_lower:\n       \
+          \                 country = std\n                        break\n       \
+          \     if country:\n                break\n\n    # ---------- 默认值补全 ----------\n\
+          \    if not card_type:\n        card_type = \"苹果卡\"\n\n    if \"苹果卡\" in\
+          \ card_type:\n        if not country:\n            country = \"美国\"\n  \
+          \      if not card_subtype:\n            card_subtype = \"实体卡\"\n    elif\
+          \ card_type in [\"谷歌卡\", \"亚马逊卡\", \"eBay卡\", \"Steam卡\", \"Xbox卡\", \"\
+          雷蛇卡\", \"PSN卡\", \"ApplePay\", \"Chime\"]:\n        if not country:\n  \
+          \          country = \"美国\"\n\n    card_type = re.sub(r'\\s+', '', card_type)\n\
+          \n    if card_type in [\"ApplePay\", \"Chime\"]:\n        country = \"美国\"\
+          \n\n    # ---------- 欧盟成员国映射（仅针对 PSN卡、雷蛇卡、Paysafe卡） ----------\n    eu_countries\
+          \ = [\n        \"奥地利\", \"比利时\", \"保加利亚\", \"塞浦路斯\", \"克罗地亚\", \"捷克\", \"\
+          丹麦\",\n        \"爱沙尼亚\", \"芬兰\", \"法国\", \"德国\", \"希腊\", \"匈牙利\", \"爱尔兰\"\
+          , \"意大利\",\n        \"拉脱维亚\", \"立陶宛\", \"卢森堡\", \"马耳他\", \"荷兰\", \"波兰\"\
+          , \"葡萄牙\",\n        \"罗马尼亚\", \"斯洛伐克\", \"斯洛文尼亚\", \"西班牙\", \"瑞典\"\n   \
+          \ ]\n    paysafe_exceptions = [\n        \"保加利亚\", \"捷克\", \"丹麦\", \"希腊\"\
+          , \"匈牙利\", \"波兰\", \"葡萄牙\", \"罗马尼亚\", \"瑞典\"\n    ]\n    xbox_exceptions\
+          \ = [\"丹麦\", \"瑞典\", \"波兰\", \"捷克\", \"匈牙利\"]\n\n    if card_type in [\"\
+          PSN卡\", \"雷蛇卡\"] and country in eu_countries:\n        country = \"欧盟\"\n\
+          \    elif card_type == \"Paysafe卡\" and country in eu_countries and country\
+          \ not in paysafe_exceptions:\n        country = \"欧盟\"\n    elif card_type\
+          \ == \"Xbox卡\" and country in eu_countries and country not in xbox_exceptions:\n\
+          \        country = \"欧盟\"\n\n    # ---------- 强制修正 Paysafe 卡例外国家（当 LLM 错误输出为“欧盟”时）\
+          \ ----------\n    if card_type == \"Paysafe卡\" and country == \"欧盟\" and\
+          \ user_query:\n        query_lower = user_query.lower()\n        exception_keywords\
+          \ = {\n            \"保加利亚\": [\"保加利亚\", \"bulgaria\"],\n            \"捷克\"\
+          : [\"捷克\", \"czech\"],\n            \"丹麦\": [\"丹麦\", \"denmark\"],\n   \
+          \         \"希腊\": [\"希腊\", \"greece\"],\n            \"匈牙利\": [\"匈牙利\",\
+          \ \"hungary\"],\n            \"波兰\": [\"波兰\", \"poland\", \"pl\"],\n   \
+          \         \"葡萄牙\": [\"葡萄牙\", \"portugal\", \"pt\"],\n            \"罗马尼亚\"\
+          : [\"罗马尼亚\", \"romania\"],\n            \"瑞典\": [\"瑞典\", \"sweden\"],\n\
+          \        }\n        for country_name, keywords in exception_keywords.items():\n\
+          \            for kw in keywords:\n                if kw in query_lower:\n\
+          \                    country = country_name\n                    break\n\
+          \            if country != \"欧盟\":\n                break\n\n    # ----------\
+          \ 强制修正 Xbox 卡例外国家（当 LLM 错误输出为“欧盟”时） ----------\n    if card_type == \"Xbox卡\"\
+          \ and country == \"欧盟\" and user_query:\n        query_lower = user_query.lower()\n\
+          \        exception_keywords = {\n            \"丹麦\": [\"丹麦\", \"denmark\"\
+          ],\n            \"瑞典\": [\"瑞典\", \"sweden\"],\n            \"波兰\": [\"波兰\"\
+          , \"poland\", \"pl\"],\n            \"捷克\": [\"捷克\", \"czech\"],\n     \
+          \       \"匈牙利\": [\"匈牙利\", \"hungary\"],\n        }\n        for country_name,\
+          \ keywords in exception_keywords.items():\n            for kw in keywords:\n\
+          \                if kw in query_lower:\n                    country = country_name\n\
+          \                    break\n            if country != \"欧盟\":\n        \
+          \        break\n\n    # ---------- 构建查询词（原有用于展示的 query） ----------\n   \
+          \ query_parts = [card_type]\n    if country:\n        query_parts.append(country)\n\
+          \    if card_subtype and \"苹果卡\" in card_type:\n        query_parts.append(card_subtype)\n\
+          \n    query = \" \".join(query_parts)\n\n    # ---------- 动态生成 SQL 语句 ----------\n\
+          \    # 1. 构建 CardName 的值（与 query 一致，也可以单独构建）\n    # 注意：部分卡片可能没有国家或子类型，需要根据实际情况调整\n\
+          \    if \"苹果卡\" in card_type:\n        if card_subtype:\n            card_name\
+          \ = f\"{card_type} {country} {card_subtype}\"\n        else:\n         \
+          \   card_name = f\"{card_type} {country}\"\n    else:\n        # 其他卡类型，如亚马逊卡、谷歌卡等，通常名字不含子类型\n\
+          \        if country:\n            card_name = f\"{card_type} {country}\"\
+          \n        else:\n            card_name = card_type\n\n    # 2. 转义单引号防止 SQL\
+          \ 注入（安全）\n    card_name_escaped = card_name.replace(\"'\", \"''\")\n\n \
+          \   # 3. 生成 SQL（仅根据 CardName 查询，面值匹配在后续代码中处理）\n    sql_query = f\"select\
+          \ * from T_Rate where CardName = '{card_name_escaped}';\"\n\n    # 返回结果，包含原有的\
+          \ query 和新生成的 sql_query\n    return {\n        \"query\": query,\n     \
+          \   \"sql_query\": sql_query\n    }"
+        code_language: python3
+        desc: '
+
+          如果是上述的输入，此节点才会正常运行'
+        outputs:
+          query:
+            children: null
+            type: string
+          sql_query:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行组合查询
+        type: code
+        variables:
+        - value_selector:
+          - '1774343927230'
+          - text
+          value_type: string
+          variable: llm_output
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: user_query
+      height: 112
+      id: '1774430433486'
+      position:
+        x: 1626.5689174101567
+        y: 77.27516951656222
+      positionAbsolute:
+        x: 1626.5689174101567
+        y: 77.27516951656222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(user_query):\n    # 定义卡名关键词映射（支持中英文，按优先级排序，避免子串误匹配）\n    card_keywords\
+          \ = [\n        (\"苹果卡\", [\"苹果卡\", \"apple\", \"itunes\"]),\n        (\"\
+          谷歌卡\", [\"谷歌卡\", \"google\"]),\n        (\"亚马逊卡\", [\"亚马逊卡\", \"amazon\"\
+          ]),\n        (\"eBay卡\", [\"ebay卡\", \"ebay\"]),\n        (\"Steam卡\", [\"\
+          steam卡\", \"steam\"]),\n        (\"Xbox卡\", [\"xbox卡\", \"xbox\"]),\n  \
+          \      (\"雷蛇卡\", [\"雷蛇卡\", \"razer\"]),\n        (\"丝芙兰卡\", [\"丝芙兰卡\", \"\
+          sephora\"]),\n        (\"香草卡\", [\"香草卡\", \"vanilla\"]),\n        (\"美国运通卡\"\
+          , [\"美国运通卡\", \"运通卡\", \"amex\"]),\n        (\"PSN卡\", [\"psn卡\", \"psn\"\
+          , \"playstation\"]),\n        (\"Apple Pay\", [\"apple pay\", \"applepay\"\
+          ]),\n        (\"Chime\", [\"chime\"]),\n        (\"Paysafe卡\", [\"paysafe卡\"\
+          , \"paysafe\"]),  # 修改为中文标准名，关键词包含小写\n    ]\n    query_lower = user_query.lower()\n\
+          \    for standard_name, keywords in card_keywords:\n        for kw in keywords:\n\
+          \            if kw.lower() in query_lower:  # 将关键词也转为小写\n              \
+          \  return {\"card_name\": standard_name}\n    # 如果没有匹配任何卡名，默认苹果卡\n    return\
+          \ {\"card_name\": \"苹果卡\"}"
+        code_language: python3
+        outputs:
+          card_name:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行提取卡名
+        type: code
+        variables:
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: user_query
+      height: 52
+      id: '1774937953613'
+      position:
+        x: 547.3251892331278
+        y: 15.054249100449042
+      positionAbsolute:
+        x: 547.3251892331278
+        y: 15.054249100449042
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-55
+            key: ''
+            type: text
+            value: "{\n  \"to\": \"{{#1774075077315.target_id#}}\",\n  \"text\": \"\
+              {{#1774249806723.message#}}\"\n}"
+          type: json
+        desc: 远程连接  wasenderapi
+        headers: 'Authorization:Bearer 7e0546998cd0e9ee198ba4a62f971c750fdff79de5ba946b2f8835e4c71905ec
+
+          Content-Type:application/json'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求发送信息
+        type: http-request
+        url: https://www.wasenderapi.com/api/send-message
+        variables: []
+      height: 167
+      id: '1776155853744'
+      position:
+        x: 2265.004697128453
+        y: 214.18794498048862
+      positionAbsolute:
+        x: 2265.004697128453
+        y: 214.18794498048862
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1774249806723.message#}}'
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 103
+      id: '1776156022087'
+      position:
+        x: 1983.0773195829738
+        y: 214.18794498048862
+      positionAbsolute:
+        x: 1983.0773195829738
+        y: 214.18794498048862
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-45
+            key: ''
+            type: text
+            value: "{\n  \"target_id\": \"{{#1774075077315.target_id#}}\",\n  \"conversation_id\"\
+              : \"{{#sys.conversation_id#}}\"\n}"
+          type: json
+        headers: Content-Type:application/json
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 2
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求实现记忆
+        type: http-request
+        url: http://192.168.3.39:9000/memory-callback
+        variables: []
+      height: 139
+      id: '1777100409578'
+      position:
+        x: 2544.0116777203066
+        y: 214.18794498048862
+      positionAbsolute:
+        x: 2544.0116777203066
+        y: 214.18794498048862
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - id: key-value-55
+            key: ''
+            type: text
+            value: "{\n  \"to\": \"{{#1774075077315.target_id#}}\",\n  \"text\": \"\
+              Hi, may I ask what kind of card you need to handle?\"\n}"
+          type: json
+        desc: '这类打招呼信息dify统一回复Hi, may I ask what kind of card you need to handle?；
+
+          其他的信息日常沟通的信息一律不回复或者回复空；
+
+          '
+        headers: 'Authorization:Bearer 7e0546998cd0e9ee198ba4a62f971c750fdff79de5ba946b2f8835e4c71905ec
+
+          Content-Type:application/json'
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求发送信息2
+        type: http-request
+        url: https://www.wasenderapi.com/api/send-message
+        variables: []
+      height: 231
+      id: '17772719942400'
+      position:
+        x: 1161.6388504654037
+        y: 323.8010790049836
+      positionAbsolute:
+        x: 1161.6388504654037
+        y: 323.8010790049836
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: ' '
+        selected: false
+        title: 直接回复其他问题
+        type: answer
+        variables: []
+      height: 84
+      id: '1777272303896'
+      position:
+        x: 859.3336380740253
+        y: 553.5290571413348
+      positionAbsolute:
+        x: 859.3336380740253
+        y: 553.5290571413348
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: Hi, may I ask what kind of card you need to handle?
+        selected: false
+        title: 直接回复打招呼
+        type: answer
+        variables: []
+      height: 116
+      id: '1777273028940'
+      position:
+        x: 859.3336380740253
+        y: 323.8010790049836
+      positionAbsolute:
+        x: 859.3336380740253
+        y: 323.8010790049836
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 8
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_config:
+          jinja2_variables: []
+        prompt_template:
+        - edition_type: basic
+          id: e743d55e-57af-4ddf-b195-20b6421b9ccc
+          role: system
+          text: '你是一个意图分类助手。
+
+
+            用户的最新输入是： "{{#context#}}"
+
+
+            判断规则（按优先级从高到低执行，命中即停止）：
+
+
+            1. **历史回答检测**：如果对话历史中最近一条消息是系统在明确询问用户提供信息（例如：“请问卡号前4位数字是多少？”、“请问这张卡是哪个国家的？”、“请问这张卡的面值是多少？”），并且当前用户输入是对该问题的合理回答（4-16位数字、国家名称、面值数字、卡号前缀），则输出
+            card_query。
+
+
+            2. **纯数字（非回答上下文）**：如果当前输入仅包含数字及其常见分隔符（如 "100"、"1,000"、"548000"），并且**对话历史中最近一条消息不是系统在向用户提问**（即不是规则1中的那种询问，例如上一条是报价、问候、错误提示等），则输出
+            chitchat。
+
+
+            3. **讨价还价/动作请求（含数字+动作词+无询问词）**：如果输入中包含数字，并且包含任意动作词（send, give, buy, get,
+            offer, pay, transfer, send me, give me），同时整个句子中**不包含**明确的询问词（how much,
+            rate, price, cost, 多少钱, 汇率, 报价），并且不包含句尾问号（?）作为提问标志，则输出 chitchat。
+
+
+            4. **赠送/拥有类陈述**：如果输入表达了赠送、给予、将来动作或陈述拥有（如 i''ll send you, i have, i got,
+            i will give），并且没有明确询问价格/汇率，则输出 chitchat。
+
+
+            5. **纯字母或无意义输入**：如果输入不包含任何数字、货币符号（$€£¥）和卡片关键词，且长度小于20，则输出 chitchat。
+
+
+            6. **仅卡片关键词（无金额）**：如果输入仅包含卡片关键词（如 "steam"、"apple"），没有数字和货币符号，则输出 chitchat。
+
+
+            7. **有效卡片查询 - 数字+卡名**：如果输入中**同时包含**金额数字和卡片关键词（卡片关键词包括：苹果、apple、steam、谷歌、google、amazon、ebay、xbox、雷蛇、razer、psn、paysafe、香草、vanilla、运通、amex、chime、apple
+            pay），则输出 card_query。
+
+
+            8. **有效卡片查询 - 货币符号+数字**：如果输入中**同时包含**货币符号（$、€、£、¥）和金额数字，则输出 card_query。
+
+
+            9. **无卡片关键词**：如果输入中**不包含任何卡片关键词**（上述列表），则输出 chitchat。
+
+
+            10. **问候语**：如果输入仅为纯问候语（包括带称呼的，如 hi, hello, hey, 你好, Hi bro,hello man），则输出
+            greeting。
+
+
+            11. **其他情况**：输出 chitchat。
+
+
+            重要约束：
+
+            - 规则3、规则4 的优先级高于规则7、规则8，确保讨价还价、赠送类请求不会被误判为卡片查询。
+
+            - 规则7 不再要求包含询问词或问号，只要同时有数字和卡片关键词即视为查询意图（对应“100 香草卡”、“500 us apple card”等）。
+
+            - 规则2 用于拦截报价后输入的纯数字。
+
+            - 输出时只输出一个单词（card_query / greeting / chitchat），不要有任何额外内容，不要换行，不要标点，并且赋值给
+            text 变量。
+
+
+            请严格按照以上规则输出。'
+        reasoning_format: tagged
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        structured_output_enabled: false
+        title: LLM分类问题
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1777360235454'
+      position:
+        x: -43.40619419000015
+        y: 150.35952191257536
+      positionAbsolute:
+        x: -43.40619419000015
+        y: 150.35952191257536
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 34af7aff-f4e1-4cfb-9bf1-238bf68243d7
+            value: card_query
+            varType: string
+            variable_selector:
+            - '1777360235454'
+            - text
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 148
+      id: '1777360241187'
+      position:
+        x: 251.50482235901507
+        y: 150.35952191257536
+      positionAbsolute:
+        x: 251.50482235901507
+        y: 150.35952191257536
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 9533574d-d91c-4ff6-9576-c158d2d71106
+            value: greeting
+            varType: string
+            variable_selector:
+            - '1777360235454'
+            - text
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 148
+      id: '1777360262249'
+      position:
+        x: 547.3251892331278
+        y: 394.30802820005067
+      positionAbsolute:
+        x: 547.3251892331278
+        y: 394.30802820005067
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The SQL query string.
+            ja_JP: The SQL query string.
+            pt_BR: The SQL query string.
+            zh_Hans: SQL 查询语句。
+          label:
+            en_US: SQL Query
+            ja_JP: SQL Query
+            pt_BR: SQL Query
+            zh_Hans: SQL 查询语句
+          llm_description: The SQL query string.
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            ja_JP: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            pt_BR: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            zh_Hans: 选填，填写后将覆盖授权时填写的数据库连接。
+          label:
+            en_US: DB URI
+            ja_JP: DB URI
+            pt_BR: DB URI
+            zh_Hans: DB URI
+          llm_description: ''
+          max: null
+          min: null
+          name: db_uri
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: json
+          form: form
+          human_description:
+            en_US: Choose the output format.
+            ja_JP: Choose the output format.
+            pt_BR: Choose the output format.
+            zh_Hans: 选择输出格式。
+          label:
+            en_US: Output format
+            ja_JP: Output format
+            pt_BR: Output format
+            zh_Hans: 输出格式
+          llm_description: ''
+          max: null
+          min: null
+          name: format
+          options:
+          - icon: ''
+            label:
+              en_US: JSON
+              ja_JP: JSON
+              pt_BR: JSON
+              zh_Hans: JSON
+            value: json
+          - icon: ''
+            label:
+              en_US: CSV
+              ja_JP: CSV
+              pt_BR: CSV
+              zh_Hans: CSV
+            value: csv
+          - icon: ''
+            label:
+              en_US: YAML
+              ja_JP: YAML
+              pt_BR: YAML
+              zh_Hans: YAML
+            value: yaml
+          - icon: ''
+            label:
+              en_US: Markdown
+              ja_JP: Markdown
+              pt_BR: Markdown
+              zh_Hans: Markdown
+            value: md
+          - icon: ''
+            label:
+              en_US: Excel
+              ja_JP: Excel
+              pt_BR: Excel
+              zh_Hans: Excel
+            value: xlsx
+          - icon: ''
+            label:
+              en_US: HTML
+              ja_JP: HTML
+              pt_BR: HTML
+              zh_Hans: HTML
+            value: html
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            ja_JP: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            pt_BR: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            zh_Hans: '选填项。例如 {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              更多连接选项可参考 https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+          label:
+            en_US: DB Config Options
+            ja_JP: DB Config Options
+            pt_BR: DB Config Options
+            zh_Hans: 数据库连接配置选项
+          llm_description: ''
+          max: null
+          min: null
+          name: config_options
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          config_options: ''
+          db_uri: ''
+          format: ''
+          query: ''
+        plugin_id: hjlarry/database
+        plugin_unique_identifier: hjlarry/database:0.0.6@534bc26cf5bc4ff6b5557457452287ccc71f00eef9378784c4f43ca49954ca2f
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=9dda666f-a7c5-48d1-be99-eb360f391d4b&filename=65d2d7404efb4952bb715a35ae79ccce92e70b820fd6cdb74e9acc58a505f7cf.svg
+        provider_id: hjlarry/database/database
+        provider_name: hjlarry/database/database
+        provider_type: builtin
+        selected: false
+        title: 数据库查询
+        tool_configurations:
+          config_options:
+            type: mixed
+            value: null
+          format:
+            type: constant
+            value: md
+        tool_description: 此工具用于在已存在的数据库中执行 SQL 查询。
+        tool_label: SQL Execute
+        tool_name: sql_execute
+        tool_node_version: '2'
+        tool_parameters:
+          db_uri:
+            type: mixed
+            value: null
+          query:
+            type: mixed
+            value: '{{#1774430433486.sql_query#}}'
+        type: tool
+      height: 114
+      id: '1780042373256'
+      position:
+        x: 1626.5689174101567
+        y: 214.18794498048862
+      positionAbsolute:
+        x: 1626.5689174101567
+        y: 214.18794498048862
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -291.7344361520486
+      y: 300.67570660995204
+      zoom: 0.8572440108367627
+  rag_pipeline_variables: []
